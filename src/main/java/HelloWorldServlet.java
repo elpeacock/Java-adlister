@@ -7,9 +7,10 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "HelloServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
+    private int count = 0;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-
+        count ++;
         res.setContentType("text/html");
 
         String name = req.getParameter("name");
@@ -19,6 +20,9 @@ public class HelloWorldServlet extends HttpServlet {
         } else {
             out.println("<h1>Hello, World!</h1>");
         }
+        out.println("<p>The count is " + count + "</p>");
 
     }
+
+
 }
